@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package shape.v1;
+
+option go_package = "shape;shape";
+option csharp_namespace = "Shape";
+option java_multiple_files = true;
+option java_outer_classname = "ShapeProto";
+option java_package = "com.shape.v1";
+
+// Shape is a simple service to calculate shapes. 
+service Shape {
+
+  // TrianglePerimeter will calculate perimeter and return value. 
+  rpc TrianglePerimeter(TrianglePerimeterRequest) returns (TrianglePerimeterResponse) {}
+
+}
+
+message TrianglePerimeterRequest {
+  uint32 sideA = 1;
+  uint32 sideB = 2;
+  uint32 sideC = 3;
+}
+
+message TrianglePerimeterResponse {
+  uint32 value = 1;
+}
